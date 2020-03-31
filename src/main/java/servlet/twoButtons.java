@@ -9,9 +9,17 @@ import java.io.*;
 import java.util.*;
 
 //Import Servlet Libraries
-import javax.servlet.*;
-import javax.servlet.http.*;
+package servlet;
+
+
+
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 // twoButtons class
 // CONSTRUCTOR: no constructor specified (default)
 //
@@ -27,16 +35,15 @@ import javax.servlet.annotation.WebServlet;
 // private void PrintTail (PrintWriter out) --> Prints the HTML bottom
 //***********************************************************************
 @WebServlet(
-        name = "MyServlet",
+        name = "twoButtons",
         urlPatterns = {"/twoButtons"}
     )
-
 public class twoButtons extends HttpServlet
 {
 
 // Location of servlet.
-static String Domain  = "https://swe432tomcat.herokuapp.com/";
-static String Path    = "";
+static String Domain  = "cs.gmu.edu:8443";
+static String Path    = "/offutt/servlet/";
 static String Servlet = "twoButtons";
 
 // Button labels
@@ -148,7 +155,7 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println(" <br>");
    out.println(" <input type=\"submit\" value=\"" + OperationAdd + "\" name=\"Operation\">");
    out.println(" <input type=\"submit\" value=\"" + OperationSub + "\" name=\"Operation\">");
-   out.println(" <input type=\"submit\" value=\""+ OperationMult + "\" name=\"Operation\">");
+   out.println(" <input type=\"submit\" value=\""+ OperationMult + "\" name=\Operation\">")
    out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
    out.println("</form>");
    out.println("");
