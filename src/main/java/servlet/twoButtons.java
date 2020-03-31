@@ -5,13 +5,10 @@
 ********************************************************************* */
 
 // Import Java Libraries
-import java.io.*;
-import java.util.*;
-
 //Import Servlet Libraries
 package servlet;
-
-
+import java.io.*;
+import java.util.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
