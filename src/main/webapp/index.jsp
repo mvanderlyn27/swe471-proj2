@@ -7,6 +7,8 @@
   <script>
     var servletURL = window.location.origin + "/server";
     var servlet2URL = window.location.origin+ "/twoButtons";
+    var servlet3URL = window.location.origin+ "/file";
+
   </script>
 <title>First JSP</title>
 </head>
