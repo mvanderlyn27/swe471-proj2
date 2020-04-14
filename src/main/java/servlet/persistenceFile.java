@@ -21,7 +21,7 @@ import javax.servlet.annotation.WebServlet;
 
 @WebServlet(name = "FilePersistence", urlPatterns = {"/file"})
 public class persistenceFile extends HttpServlet{
-  static enum Data {AGE, NAME};
+  static enum Data {AGE, NAME, SEX};
   static String RESOURCE_FILE = "entries.txt";
   static final String VALUE_SEPARATOR = ";";
 
@@ -46,6 +46,7 @@ public class persistenceFile extends HttpServlet{
   {
      String name = request.getParameter(Data.NAME.name());
      String age = request.getParameter(Data.AGE.name());
+     String sex = request.getParameter(Data.SEX.name());
 
      String error = "";
      if(name == null){
@@ -73,13 +74,24 @@ public class persistenceFile extends HttpServlet{
             age = "";
           }
      }
+     if(sex==null){
+      error+= "<li>Sex is required.<li>";
+      sex = "";
+     }else{
+       if(sex.toUpperCase()!="F" && sex.toUpperCase()!="M"){
+        error+= "<li>Sex must be either F, or M</li>";
+        sex = "";
+      }
+       }
+     }
+
 
      response.setContentType("text/html");
      PrintWriter out = response.getWriter();
 
      if (error.length() == 0){
        PrintWriter entriesPrintWriter = new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
-       entriesPrintWriter.println(name+VALUE_SEPARATOR+age);
+       entriesPrintWriter.println(name+VALUE_SEPARATOR+age+VALUE_SEPARATOR+sex);
        entriesPrintWriter.close();
 
        PrintHead(out);
@@ -87,7 +99,7 @@ public class persistenceFile extends HttpServlet{
        PrintTail(out);
      }else{
        PrintHead(out);
-       PrintBody(out, name, age, error);
+       PrintBody(out, name, age, sex, error);
        PrintTail(out);
      }
   }
@@ -155,6 +167,12 @@ public class persistenceFile extends HttpServlet{
       +"\" oninput=\"this.value=this.value.replace(/[^0-9]/g,'');\" value=\""
       +age+"\" size=3 required></td>");
      out.println("  </tr>");
+     out.println("  <tr>");
+     out.println("   <td>Sex:</td>");
+     out.println("   <td><input type=\"text\"  name=\""+Data.SEX.name()
+      +"\" oninput=\"this.value=this.value.replace(/[^0-9]/g,'');\" value=\""
+      +sex+"\" size=3 required></td>");
+     out.println("  </tr>");
      out.println(" </table>");
      out.println(" <br>");
      out.println(" <br>");
@@ -181,6 +199,7 @@ public class persistenceFile extends HttpServlet{
         out.println("  <tr>");
         out.println("   <th>Name</th>");
         out.println("   <th>Age</th>");
+        out.println("   <th>Sex</th>");
         out.println("  </tr>");
         File file = new File(resourcePath);
         if(!file.exists()){
