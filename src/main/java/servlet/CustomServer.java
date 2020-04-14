@@ -30,7 +30,7 @@ public class CustomServer extends HttpServlet
     URL+="last_name="+req.getParameter("last_name")+"&";
     URL+="building="+req.getParameter("building")+"&";
     URL+="number="+req.getParameter("number")+"&";
-    URL+="Date of Visit="+req.getParameter("Date of Visit")+"&";
+    URL+="Date_of_Visit="+req.getParameter("Date_of_Visit")+"&";
     URL+="first_name="+req.getParameter("first_name")+"&";
     URL+="email="+req.getParameter("email");
     resp.sendRedirect(URL);
@@ -42,7 +42,7 @@ public class CustomServer extends HttpServlet
       URL+="last_name="+req.getParameter("last_name")+"&";
       URL+="building="+req.getParameter("building")+"&";
       URL+="number="+req.getParameter("number")+"&";
-      URL+="Date of Visit="+req.getParameter("Date of Visit")+"&";
+      URL+="Date_of_Visit="+req.getParameter("Date_of_Visit")+"&";
       URL+="first_name="+req.getParameter("first_name")+"&";
       URL+="email="+req.getParameter("email");
       resp.sendRedirect(URL);
