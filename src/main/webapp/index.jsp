@@ -16,6 +16,6 @@
 <strong>Current Time is</strong>: <%=new Date() %>
 <button onclick="window.location.assign(servletURL);"> Try the servlet </button>
 <button onclick="window.location.assign(servlet2URL);"> Go to 2 buttons</button>
-
+<button onclick="window.location.assign(servlet3URL);"> Go to file persitence servlet </button>
 </body>
 </html>
