@@ -35,4 +35,16 @@ public class CustomServer extends HttpServlet
     URL+="email="+req.getParameter("email");
     resp.sendRedirect(URL);
     }
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+    
+      String URL = "https://ass7swe432.herokuapp.com/results/?";
+      URL+="Comments="+req.getParameter("Comments")+"&";
+      URL+="last_name="+req.getParameter("last_name")+"&";
+      URL+="building="+req.getParameter("building")+"&";
+      URL+="number="+req.getParameter("number")+"&";
+      URL+="Date of Visit="+req.getParameter("Date of Visit")+"&";
+      URL+="first_name="+req.getParameter("first_name")+"&";
+      URL+="email="+req.getParameter("email");
+      resp.sendRedirect(URL);
+      }
 }
