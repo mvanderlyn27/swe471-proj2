@@ -9,7 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.simple.JSONObject;
+//import org.json.simple.JSONObject;
 
 @WebServlet(name = "MyServlet", urlPatterns = { "/echo" })
 
@@ -22,7 +22,7 @@ public class echoServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        org.json.JSONObject ret = new org.json.JSONObject();
+       /* org.json.JSONObject ret = new org.json.JSONObject();
         ret.put("Comments", req.getParameter("Comments"));
         ret.put("building", req.getParameter("building"));
         ret.put("number", req.getParameter("number"));
@@ -35,12 +35,12 @@ public class echoServlet extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         out.print(ret);
-        out.flush();
+        out.flush();*/
     }
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        org.json.JSONObject ret = new org.json.JSONObject();
+      /*  org.json.JSONObject ret = new org.json.JSONObject();
         ret.put("Comments", req.getParameter("Comments"));
         ret.put("building", req.getParameter("building"));
         ret.put("number", req.getParameter("number"));
@@ -54,6 +54,6 @@ public class echoServlet extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         out.print(ret);
-        out.flush();
+        out.flush();*/
     }
 }
