@@ -79,7 +79,7 @@ public class persistenceFile extends HttpServlet {
       error += "<li>Sex is required.<li>";
       sex = "";
     } else {
-      if (sex.toUpperCase() != "F" && sex.toUpperCase() != "M") {
+      if (!sex.equalsIgnoreCase("F") && !sex.equalsIgnoreCase("M")) {
         error += "<li>Sex must be either F, or M</li>";
         sex = "";
       }
@@ -169,7 +169,7 @@ public class persistenceFile extends HttpServlet {
     out.println("  </tr>");
     out.println("  <tr>");
     out.println("   <td>Sex:</td>");
-    out.println("   <td><input type=\"text\"  name=\"" + Data.SEX.name() + "\" value=\"" + sex + "\" size=1 required></td>");
+    out.println("   <td><input type=\"text\"  name=\"" + Data.SEX.name()+ "\" value=\"" + sex + "\" size=1 required></td>");
     out.println("  </tr>");
     out.println(" </table>");
     out.println(" <br>");
